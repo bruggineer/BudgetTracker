@@ -5,24 +5,42 @@ import Chart from "./components/Expense-Chart";
 class App extends React.Component {
 
   state = {
-    expenseNames: [],
     expenseAmount: '',
-    expenses: [],
+    expenseName: '',
+    expenses: []
   }
 
-  addExpenseName = item => {
-    this.setState({ expenseNames: [...this.state.expenseNames, item] })
-   }
+  handleInputChange = event => {
+    let value = event.target.value;
+    const name = event.target.name;
 
-  addExpenseAmount = item => {
-    this.setState({ expenseAmount: [...this.state.expenseAmount, item]})
-  }
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    let expenses = this.state.expenses;
+    this.setState({ ...this.state, expenses: expenses.concat(this.state.expenseAmount), expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
+    this.expenseName.value = "";
+    this.expenseAmount.value = "";
+
+    let amountTotal = (this.state.expenses).reduce((totalSpent, expense) => totalSpent + parseInt(this.state.expense, 10), 0);
+
+    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + "expenses: " + this.state.expenses + amountTotal);
+    this.setState({
+      expenseName: "",
+      expenseAmount: ""
+    })
+  };
 
   render() {
     return (
       <div>
-        <Form addExpense={this.addExpense} />
-        <Chart addExpense={this.addExpense} />
+        <Form />
+        <Chart />
       </div>
     );
   }

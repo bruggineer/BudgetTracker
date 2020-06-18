@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 function Chart(props) {
-  console.log(props)
   return (
     <>
       <div>
@@ -18,6 +17,13 @@ function Chart(props) {
               <td>{props.expenseName}</td>
               <td>${props.expenseAmount}</td>
             </tr>
+            <tr>
+                <td>Total:</td>
+                <td>{props.amountTotal}
+                 
+                </td>
+                <td />
+              </tr>
           </tbody>
         </table>
       </div>

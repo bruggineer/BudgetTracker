@@ -1,58 +1,26 @@
 import React from "react";
 import "./style.css";
 
-class Form extends React.Component {
-  state = {
-    expenseName: '',
-    expenseAmount: '',
-    expenses: []
-  }
-
-  handleInputChange = event => {
-    let value = event.target.value;
-    const name = event.target.name;
+function Form(props) {
   
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-
-    let expenses = this.state.expenses;
-    let amount = parseFloat(this.state.expenseAmount);
-    console.log(amount);
-    console.log(expenses)
-    expenses.push(amount);
-
-    this.setState({...this.state, expenses: this.state.expenses, expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
-    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + this.state.expenses);
-    this.setState({
-      expenseName: "",
-      expenseAmount: ""
-    })
-  }
-
-  render(){
     return (
-      <div className="form">
-        <form onSubmit={this.handleFormSubmit}>
+      <div className="form col-md-2">
+        <form onSubmit={props.handleFormSubmit}>
         <p className="heading">
           Welcome to Budget Tracker!
         </p>
           <div className="form-group">
           <input
-            value={this.state.expenseName}
+            value={props.expenseName}
             name="expenseName"
-            onChange={this.handleInputChange}
+            onChange={props.handleInputChange}
             type="text"
             placeholder="Expense Name"
           />
           <input
-            value={this.state.expenseAmount}
+            value={props.expenseAmount}
             name="expenseAmount"
-            onChange={this.handleInputChange}
+            onChange={props.handleInputChange}
             type="text"
             placeholder="Expense Amount (in dollars)"
           />
@@ -61,7 +29,6 @@ class Form extends React.Component {
         </form>
       </div>
     )};
-  }
 
 export default Form;
 
