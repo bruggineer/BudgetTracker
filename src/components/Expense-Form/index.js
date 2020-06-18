@@ -21,11 +21,13 @@ class Form extends React.Component {
     event.preventDefault();
 
     let expenses = this.state.expenses;
-    let amount = parseFloat(this.state.ExpenseAmount);
-
+    let amount = parseFloat(this.state.expenseAmount);
+    console.log(amount);
+    console.log(expenses)
     expenses.push(amount);
 
-    this.setState({...this.state, expenses: expenses, expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
+    this.setState({...this.state, expenses: this.state.expenses, expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
+    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + this.state.expenses);
     this.setState({
       expenseName: "",
       expenseAmount: ""
@@ -41,14 +43,14 @@ class Form extends React.Component {
         </p>
           <div className="form-group">
           <input
-            value={this.props.expenseName}
+            value={this.state.expenseName}
             name="expenseName"
             onChange={this.handleInputChange}
             type="text"
             placeholder="Expense Name"
           />
           <input
-            value={this.props.expenseAmount}
+            value={this.state.expenseAmount}
             name="expenseAmount"
             onChange={this.handleInputChange}
             type="text"

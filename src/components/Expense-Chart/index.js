@@ -2,12 +2,7 @@ import React from "react";
 import "./style.css";
 
 function Chart(props) {
-  // state = {
-  //     expenseName: "",
-  //     expenseAmount: ""
-  // }
-
-
+  console.log(props)
   return (
     <>
       <div>
@@ -20,7 +15,7 @@ function Chart(props) {
           </thead>
           <tbody>
             <tr>
-              <td>${props.expenseName}</td>
+              <td>{props.expenseName}</td>
               <td>${props.expenseAmount}</td>
             </tr>
           </tbody>
