@@ -29,7 +29,7 @@ class App extends React.Component {
 
     let amountTotal = (this.state.expenses).reduce((totalSpent, expense) => totalSpent + parseInt(this.state.expense, 10), 0);
 
-    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + "expenses: " + this.state.expenses + amountTotal);
+    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + "expenses: " + this.state.expenses + amountTotalç);
     this.setState({
       expenseName: "",
       expenseAmount: ""
