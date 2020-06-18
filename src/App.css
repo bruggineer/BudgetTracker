@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  background-image: url(StockSnap_RG4XMMLSNU.jpg);
 }
+
+img { opacity: 0.5;}
 
 .App-logo {
   height: 40vmin;
