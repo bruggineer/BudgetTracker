@@ -1,35 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
 import Form from "./components/Expense-Form";
 import Chart from "./components/Expense-Chart";
 
-class App extends React.Component {
 
-  state = {
-    expenseAmount: '',
-    expenseName: '',
-    expenses: []
-  }
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expenseAmount: '',
+      expenseName: '',
+      expenses: 0
+    }
+  };
 
   handleInputChange = event => {
     let value = event.target.value;
     const name = event.target.name;
-
+    console.log(value)
     this.setState({
       [name]: value
     });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  calcExpenses = (state => {
+    this.setState((state, props) => {
+      console.log(this.state.expenseAmount)
+      console.log(this.state.expenses)
+      return {
+        expenses: ((this.state.expenses) + parseFloat(this.state.expenseAmount))
+      }
+    })
+  });
 
-    let expenses = this.state.expenses;
-    this.setState({ ...this.state, expenses: expenses.concat(this.state.expenseAmount), expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
-    this.expenseName.value = "";
-    this.expenseAmount.value = "";
+  handleFormSubmit = (e) => {
+    e.preventDefault();
 
-    let amountTotal = (this.state.expenses).reduce((totalSpent, expense) => totalSpent + parseInt(this.state.expense, 10), 0);
+    this.setState({ expenseAmount: e.target.value });
+    this.setState({ expenseName: e.target.value });
+    this.setState({expenses: this.calcExpenses()})
+    
+    console.log(this.state.expenseAmount);
+    console.log(this.state.expenseName);
+    console.log(this.state.expenses);
 
-    alert("You spent $" + this.state.expenseAmount + " on " + this.state.expenseName + "expenses: " + this.state.expenses + amountTotalç);
     this.setState({
       expenseName: "",
       expenseAmount: ""
@@ -39,27 +52,31 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Form />
-        <Chart />
+        <Form expenseAmount={this.expenseAmount} expenseName={this.expenseName} handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} />
+        <Chart expenseAmount={this.expenseAmount} expenseName={this.expenseName} expenses={this.expenses} />
       </div>
-    );
+    )
   }
-}
+};
 
 export default App;
 
-// import React from 'react';
-// import Form from "./components/Expense-Form";
-// import Chart from "./components/Expense-Chart";
-// import './App.css';
+// this.setState({expenses: expenses})
+  // //this.setState({expenses: ((this.state.expenses) + parseFloat(this.state.expenseAmount))});
+  // this.setState((state, props) => ({
+  //   expenses: state.expenses + props.expenseAmount,
+  // }));
+  //   this.setState({
+  //     expenses: [...this.state.expenses, expenseAmount]
+  //   })
+  //   console.log(expenses);
+  //   var sum = expenses.reduce(function(a, b){
+  //     return a + b;
+  // }, 0);
 
-// function App () {
-// return (
-//   <React.Fragment>
-//     <Chart />
-//     <Form />
-//   </React.Fragment>
-// )
-// }
-
-// export default App;
+  // console.log(sum);
+  // this.setState({ ...this.state, expenses: [...expenses, (parseFloat(this.state.expenseAmount))], expenseName: this.state.expenseName, expenseAmount: this.state.expenseAmount })
+  // //let amountTotal = (this.state.expenses).reduce((amountTotal, expense) => amountTotal + expense);
+  // //let amountTotal = expenses.reduce((getSum(total, num), 0), => { return total + Math.round(num)}
+  // var amountTotal = expenses.reduce((total, item) => item.data.reduce(getSum, total), 0);
+  // console.log(amountTotal);

@@ -2,14 +2,14 @@ import React from "react";
 import "./style.css";
 
 function Form(props) {
-  
-    return (
-      <div className="form col-md-2">
-        <form onSubmit={props.handleFormSubmit}>
+
+  return (
+    <div className="form col-md-2">
+      <form onSubmit={props.handleFormSubmit}>
         <p className="heading">
           Welcome to Budget Tracker!
         </p>
-          <div className="form-group">
+        <div className="form-group">
           <input
             value={props.expenseName}
             name="expenseName"
@@ -24,11 +24,12 @@ function Form(props) {
             type="text"
             placeholder="Expense Amount (in dollars)"
           />
-          </div>
-          <button type="submit" className="btn btn-primary">Add Expense</button>
-        </form>
-      </div>
-    )};
+        </div>
+        <button type="submit" className="btn btn-primary">Add Expense</button>
+      </form>
+    </div>
+  )
+};
 
 export default Form;
 
@@ -70,7 +71,7 @@ export default Form;
 //   // useEffect(() => {
 //   //   localStorage.setItem("storedExpenses", JSON.stringify(expenseState));
 //   // }, [expenseState]);
-  
+
 //   return (
 //     <form onSubmit={handleFormSubmit}>          
 //           <div>
