@@ -1,4 +1,8 @@
 .wrapper {
   min-height: 100%;
   padding-bottom: 100px;
+  background-image: url(StockSnap_LPLPKWISYS.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

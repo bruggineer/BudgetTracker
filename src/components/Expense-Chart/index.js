@@ -2,34 +2,35 @@ import React from "react";
 import "./style.css";
 
 function Chart(props) {
+
+  let total = 0;
+  props.expenses.forEach(expenses => {
+    total = total + parseFloat(expenses.expenseAmount);
+  });
+
   return (
     <>
-      <div>
+      <div className="form col-md-5 d-flex justify-content-center">
         <table className="table">
-          <thead className="bg-dark text-light">
+          <thead className="bg-dark text-light col">
             <tr>
               <th>Expense Name</th>
               <th>Expense Amount</th>
             </tr>
           </thead>
-          <tbody>
-          {this.props.expenseName.map(name => (
-            <tr>
-            <td>{name.expenseName}</td>                           
-            </tr>
-            ))};
-            {this.props.expenseAmount.map(amount => (
-            <tr>
-              <td>${amount.expenseAmount}</td>
-            </tr>
-            ))};
-            {this.props.expenses.map(total => (
-            <tr>
-              <td>Total:</td>
-              <td>{total.expenses}</td>
-            </tr>
-            ))};
+          <tbody className="bg-light">
+            {props.expenses.map(expenses => (
+              <tr>
+                <td>{expenses.expenseName}</td>
+                <td>{expenses.expenseAmount}</td>
+              </tr>
+            ))}
           </tbody>
+          <tr className="bg-light">
+            <td colspan="2" className="pull-right">
+              Total: ${total}
+            </td>
+          </tr>
         </table>
       </div>
     </>
