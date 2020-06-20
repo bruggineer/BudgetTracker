@@ -1,4 +1,4 @@
-# Unit 18 React Homework: Budget Tracker
+# Budget Tracker
 
 ## Overview
 
