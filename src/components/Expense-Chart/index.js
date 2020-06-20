@@ -13,14 +13,22 @@ function Chart(props) {
             </tr>
           </thead>
           <tbody>
+          {this.props.expenseName.map(name => (
             <tr>
-              <td>{props.expenseName}</td>
-              <td>${props.expenseAmount}</td>
+            <td>{name.expenseName}</td>                           
             </tr>
+            ))};
+            {this.props.expenseAmount.map(amount => (
+            <tr>
+              <td>${amount.expenseAmount}</td>
+            </tr>
+            ))};
+            {this.props.expenses.map(total => (
             <tr>
               <td>Total:</td>
-              <td>{props.expenses}</td>
+              <td>{total.expenses}</td>
             </tr>
+            ))};
           </tbody>
         </table>
       </div>
