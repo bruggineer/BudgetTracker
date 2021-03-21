@@ -20,6 +20,7 @@ function Form(props) {
             onChange={props.handleInputChange}
             type="text"
             placeholder="Expense Category"
+            autoComplete="off"
           />
           <input
             value={props.expenseAmount}
@@ -27,6 +28,7 @@ function Form(props) {
             onChange={props.handleInputChange}
             type="text"
             placeholder="Expense Amount"
+            autoComplete="off"
           />
         </div>
         <button type="submit" className="btn btn-primary">Add Expense</button>

@@ -5,7 +5,7 @@ function Chart(props) {
 
   let total = 0;
   props.expenses.forEach(expenses => {
-    total = total + parseFloat(expenses.expenseAmount);
+    total = total + parseFloat(expenses.expenseAmount).toFixed(2);
   });
 
   return (

@@ -18,7 +18,6 @@ class App extends React.Component {
   handleInputChange = event => {
     let value = event.target.value;
     const name = event.target.name;
-    console.log(value)
     this.setState({
       [name]: value
     });
@@ -33,12 +32,7 @@ class App extends React.Component {
         expenseName: this.state.expenseName,
       }],
     })
-
-    console.log(this.state.expenseAmount);
-    console.log(this.state.expenseName);
-    console.log(this.state.expenses);
-
-  }
+  };
 
   render() {
     return (
