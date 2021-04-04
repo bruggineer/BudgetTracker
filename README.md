@@ -27,5 +27,5 @@ A user should be able to input an expense, consisting of:
 
 
 
-Background photo courtesy of <a href="https://stocksnap.io/author/56793">Shopify</a> from <a href="https://stocksnap.io">StockSnap</a>
-Favicon courtesy of <a href="https://icons8.com/>Icons8</a>
+Background photo courtesy of <a href="https://stocksnap.io/author/56793">Shopify</a> from <a href="https://stocksnap.io">StockSnap</a> 
+Favicon courtesy of Icons8.
